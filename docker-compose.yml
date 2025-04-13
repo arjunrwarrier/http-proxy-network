@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  proxy-client:
+    image: notwarrier/proxy-client:latest
+    ports:
+      - "8080:8080"
+    networks:
+      - proxy-net
+
+  proxy-server:
+    image: notwarrier/proxy-server:latest
+    ports:
+      - "9090:9090"
+    networks:
+      - proxy-net
+
+networks:
+  proxy-net:
+    driver: bridge
